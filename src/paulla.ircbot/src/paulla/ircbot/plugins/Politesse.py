@@ -38,10 +38,11 @@ class Politesse:
             if mask.nick != self.bot.nick:
                 #and not mask.nick.lower() in self.usersreplied:
                 #   self.usersreplied.append(mask.nick.lower())
-                self.bot.call_with_human_delay(
-                        self.bot.privmsg,
-                        channel,
-                        "%s, %s" % (mask.nick, self._reply[random.randint(0, len(self._reply)-1)]))
+                self.bot.privmsg(target, "%s, %s" % (mask.nick, self._reply[random.randint(0, len(self._reply)-1)]))
+                #self.bot.call_with_human_delay(
+                #        self.bot.privmsg,
+                #        channel,
+                #        "%s, %s" % (mask.nick, self._reply[random.randint(0, len(self._reply)-1)]))
             #elif mask.nick.lower() == self.bot.nick.lower():
                 #self.usersreplied = [nick.lower() for nick in self.bot.nicks]
     
