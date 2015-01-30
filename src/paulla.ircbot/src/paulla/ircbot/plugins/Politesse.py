@@ -1,5 +1,3 @@
-#-*- coding: utf-8 -*-
-
 import irc3
 import random
 from time import sleep
@@ -14,8 +12,8 @@ class Politesse:
         self.log = self.bot.log
         self.users = []
         self.usersreplied = []
-        self.hi = ('salut','bonjour','yop', 'matin')
-        self.reply = ('Alors, ça roule?', 'C\'est maintenant que t\'arrives?', 'Enfin de retour parmis nous!', 'Te voilà enfin! Comment ça va?')
+        self._hi = ('salut','bonjour','yop', 'matin')
+        self._reply = ('Alors, ca roule?', 'C\'est maintenant que t\'arrives?', 'Enfin de retour parmis nous!', 'Te voila enfin! Comment ca va?')
 
     @irc3.event(irc3.rfc.PING)
     def at_ping(self, data):
@@ -36,7 +34,7 @@ class Politesse:
   
     @irc3.event(irc3.rfc.PRIVMSG)
     def bienlebonjour(self, mask, event, target, data):  
-        if [hi for hi in self.hi if '%s' %hi in data.lower()]:
+        if [hi for hi in self._hi if '%s' %hi in data.lower()]:
             if mask.nick != self.bot.nick\
                 and not mask.nick.lower() in self.usersreplied:
                     self.usersreplied.append(mask.nick.lower())
