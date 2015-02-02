@@ -36,9 +36,9 @@ class Politesse:
     def bienlebonjour(self, mask, event, target, data):  
         if [word for word in self._hi if '%s' % word in data.lower()]:
             if mask.nick != self.bot.nick\
-                and not mask.nick.lower() in self.usersreplied:
-                    self.usersreplied.append(mask.nick.lower())
-                    self.bot.privmsg(target, "%s, %s" % (mask.nick, self._reply[random.randint(0, len(self._reply)-1)]))
+                    and not mask.nick.lower() in self.usersreplied:
+                        self.usersreplied.append(mask.nick.lower())
+                        self.bot.privmsg(target, "%s, %s" % (mask.nick, self._reply[random.randint(0, len(self._reply)-1)]))
             elif mask.nick.lower() == self.bot.nick.lower():
                 self.usersreplied = [nick.lower() for nick in self.bot.nicks]
     
