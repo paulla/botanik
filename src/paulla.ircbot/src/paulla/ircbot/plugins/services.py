@@ -17,7 +17,7 @@ class ServicesPaulla:
     def services_paulla(self, mask, event, target, data):
         if [values for values in thedict.values() for values in values if values in data.lower()]:
             if mask.nick != self.bot.nick:
-                valuestokeep = [values for values in thedict.values() for values in values if values in thedatas]
+                valuestokeep = [values for values in thedict.values() for values in values if values in data.lower()]
                 listkeys = [keys for keys, values in thedict.iteritems() for values in values if values in valuestokeep]
                 if listkeys:
                     for thekey in listkeys:
