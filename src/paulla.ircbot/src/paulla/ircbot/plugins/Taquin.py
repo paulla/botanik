@@ -41,17 +41,20 @@ class Taquin:
         if event == 'PRIVMSG' \
                 and not data.startswith('!')\
                 and mask.nick != self.bot.nick:
-            cur = self.conn.cursor()
-            words = [word for word in data.split() if word.isalnum()]
-            for word in words:
-                cur.execute("""
-                select message from Taquin where keyword = '%s'
-                """ % word)
-                result = cur.fetchall()
-                if result:
-                    message = sample(result, 1)[0][0]
-                    self.bot.privmsg(target, message)
-            cur.close()
+            if mask.nick == "EthPyth":
+                self.bot.privmsg(target, "Toi tu prends soin de moi, tu es un pote!")
+            else:
+                cur = self.conn.cursor()
+                words = [word for word in data.split() if word.isalnum()]
+                for word in words:
+                    cur.execute("""
+                    select message from Taquin where keyword = '%s'
+                    """ % word)
+                    result = cur.fetchall()
+                    if result:
+                        message = sample(result, 1)[0][0]
+                        self.bot.privmsg(target, message)
+                cur.close()
 
     @command(permission='admin', public=False)
     def taquin(self, mask, target, args):
