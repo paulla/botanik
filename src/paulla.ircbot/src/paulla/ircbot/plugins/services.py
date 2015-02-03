@@ -16,7 +16,8 @@ class ServicesPaulla:
     @irc3.event(irc3.rfc.PRIVMSG)
     def services_paulla(self, mask, event, target, data):
         if [values for values in thedict.values() for values in values if '%s' % values in data]:
-            self.bot.privmsg(target, "J\'ai values le soucis est plus bas")
+            self.bot.privmsg(target, "Je me nomme %s, compris %s!" % (self.bot nick, mask.nick))
+            
             if mask.nick != self.bot.nick:
                 valuestokeep = [values for values in thedict.values() for values in values if '%s' % values in data.lower()]
                 listkeys = [keys for keys, values in thedict.iteritems() for values in values if values in valuestokeep]
