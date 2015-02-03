@@ -21,5 +21,5 @@ class ServicesPaulla:
                 listkeys = [keys for keys, values in thedict.items() for values in values if values in valuestokeep]
                 if listkeys:
                     for thekey in listkeys:
-                        self.bot.privmsg(target, "%s, il y a ce service au besoin : %s.paulla.asso.fr/" % (mask.nick, thekey))
+                        self.bot.privmsg(target, "%s, il y a ce service au besoin : https://%s.paulla.asso.fr/" % (mask.nick, thekey))
       
