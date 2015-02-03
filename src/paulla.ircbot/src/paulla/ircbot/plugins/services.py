@@ -18,7 +18,7 @@ class ServicesPaulla:
         if [values for values in thedict.values() for values in values if '%s' % values in data]:
             if mask.nick != self.bot.nick:
                 valuestokeep = [values for values in thedict.values() for values in values if '%s' % values in data]
-                listkeys = [keys for keys, values in thedict.iteritems() for values in values if values in valuestokeep]
+                listkeys = [keys for keys, values in thedict.items() for values in values if values in valuestokeep]
                 if listkeys:
                     for thekey in listkeys:
                         self.bot.privmsg(target, "%s, il y a ce service au besoin : %s.paulla.asso.fr/" % (mask.nick, thekey))
