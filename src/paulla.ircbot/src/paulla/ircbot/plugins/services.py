@@ -1,5 +1,5 @@
 from configparser import ConfigParser
-
+import irc3
 
 config = ConfigParser()
 config.read('services.cfg')
