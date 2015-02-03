@@ -8,7 +8,7 @@ thedict = {key: value.splitlines()[1:] for key, value in items}
 
 @irc3.plugin
 class ServicesPaulla:
-""" Services Paulla plugin """
+    """ Services Paulla plugin """
     def __init__(self, bot):
         self.bot = bot
         self.log = self.bot.log
