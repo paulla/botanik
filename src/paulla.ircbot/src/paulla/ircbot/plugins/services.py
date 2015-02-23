@@ -23,4 +23,7 @@ class ServicesPaulla:
                     if listkeys:
                         for thekey in listkeys:
                             self.bot.privmsg(target, "%s, il y a ce service au besoin : https://%s.paulla.asso.fr/" % (mask.nick, thekey))
-      
+            else:
+                listkeys = [keys for keys, values in thedict.items()]
+                self.bot.privmsg(target, "Tu en veux du service? Voilà ce qu'on a à ta dispo => %s.Alors tapes !service ainsi que le service dans cette liste et tu auras l'url voulue." % (', '.join(listkeys)))
+                
