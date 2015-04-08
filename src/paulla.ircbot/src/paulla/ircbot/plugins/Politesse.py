@@ -47,6 +47,10 @@ class Politesse:
     def matin(self):
         for chan in self.bot.channels:
             self.bot.privmsg(chan, 'Matin!')
+    
+    @cron('5 10 * * *')
+    def matin(self):
+        for chan in self.bot.channels:
             self.bot.privmsg(chan, 'Bonjour Madame http://www.bonjourmadame.fr')
 
     @cron('15 3 * * *')
