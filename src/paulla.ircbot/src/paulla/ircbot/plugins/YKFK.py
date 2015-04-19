@@ -19,3 +19,11 @@ class Yakafokon:
             yakafokon = list(parser['config']['badwords'].splitlines()[1:])
             if [terme for terme in yakafokon if ' %s ' %terme in data]:
                 self.bot.privmsg(target, "¡¡¡ YAKAFOKON detected !!!")
+
+    @irc3.event(irc3.rfc.PRIVMSG)
+    def lol(self, mask, event, target, data):
+        if not mask.nick.startswith(masters):
+            lol_detection = list(parser['config']['lolwords'].splitlines()[1:])
+            if [terme for terme in lol_detection if ' %s ' %terme in data]:
+                self.bot.privmsg(target, "¡¡¡ LOL kiddy usage detected !!!")
+

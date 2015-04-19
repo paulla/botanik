@@ -47,7 +47,7 @@ class Politesse:
     def matin(self):
         for chan in self.bot.channels:
             self.bot.privmsg(chan, 'Matin!')
-
+ 
     @cron('15 3 * * *')
     def update_users(self):
         self.users = [nick.lower() for nick in self.bot.nick]

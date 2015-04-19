@@ -32,7 +32,7 @@ class Door:
     def anoncement(self):
         r = requests.get('http://localhost:2222').json()
         last_change = datetime.strptime(r['lastchange'], "%d/%m/%Y %H:%M:%S")
-        if (datetime.now() - last_change).seconds <= 60:
+        if (datetime.now() - last_change).seconds <= 6:
             for chan in self.bot.channels:
                 if "0" in r['state']:
                     self.bot.notice(chan,'Le MIPS-lab est ouvert !')
