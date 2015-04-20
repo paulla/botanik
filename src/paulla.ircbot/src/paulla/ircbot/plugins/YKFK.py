@@ -23,6 +23,6 @@ class Yakafokon:
     @irc3.event(irc3.rfc.PRIVMSG)
     def lol(self, mask, event, target, data):
         lol_detection = list(parser['config']['lolwords'].splitlines()[1:])
-        if [terme.lower() for terme in lol_detection if ' %s ' %terme.lower() in data.lower()]:
+        if [terme.lower() for terme in lol_detection if '%s' %terme.lower() in data.lower()]:
             self.bot.privmsg(target, "¡¡¡ LOL kiddy usage detected !!!")
 
