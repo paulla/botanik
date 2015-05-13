@@ -4,7 +4,7 @@
 """
 Plugins to show URL's title
 """
-
+import unicodedata
 import sqlite3
 from os.path import exists, dirname, expanduser
 import re
@@ -81,7 +81,7 @@ class Urls(object):
             # check HTTP status code, success if code is 2xx (rfc 2616)
             if (req.status_code / 100 % 10) == 2:
                 soup = BeautifulSoup(req.content)
-                title = soup.title.string.encode('ascii', 'ignore').decode('ascii', 'ignore')
+                title = unicodedata.normalize('NFKD',soup.title.string.decode('UTF-8')).encode('ascii', 'ignore')
                 domain = urlparse(url).netloc.split(':')[0]
                 self.bot.privmsg(target, TITLE_MSG % (title, domain))
 
