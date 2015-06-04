@@ -81,7 +81,7 @@ class Urls(object):
             # check HTTP status code, success if code is 2xx (rfc 2616)
             if (req.status_code / 100 % 10) == 2:
                 soup = BeautifulSoup(req.content)
-                title = unicodedata.normalize('NFKD',soup.title.string.decode('UTF-8')).encode('ascii', 'ignore')
+                title = unicodedata.normalize('NFKD',soup.title.string.decode('UTF-8')).encode('ascii', 'ignore').decode('ascii', 'ignore')
                 domain = urlparse(url).netloc.split(':')[0]
                 self.bot.privmsg(target, TITLE_MSG % (title, domain))
 
